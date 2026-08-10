@@ -11,4 +11,16 @@ Passive reconnaissance means collecting information without directly contacting 
 Key OSINT sources include WHOIS, DNS records, Shodan, LinkedIn, and GitHub leaks.
 Day 1 focus: Understanding OSINT and passive reconnaissance.
 
-## Day 2 
+## Day 2 — Email Harvesting & Social Engineering Prep
+Email harvesting means collecting addresses from public web sources.
+Pretexting means crafting a believable fake identity for social engineering attacks.
+Ethics boundary: only target domains you own or have written permission for.
+
+## Day 3 — Phishing Page Anatomy & Detection
+Phishing relies on visual cloning of real websites plus urgency triggers.
+Common indicators: domain/brand mismatch, missing HTTPS, suspicious URL patterns.
+Built a URL risk scorer that flags suspicious domains based on these indicators.
+
+## Day 4 — Vishing & Smishing Simulation Scripts
+Vishing (voice phishing) and smishing (SMS phishing) use psychological triggers — authority, scarcity, fear, and liking — to manipulate targets.
+Built a script generator that produces awareness-training call scripts with red-flag explanations.
