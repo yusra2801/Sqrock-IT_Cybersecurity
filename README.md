@@ -24,3 +24,6 @@ Built a URL risk scorer that flags suspicious domains based on these indicators.
 ## Day 4 — Vishing & Smishing Simulation Scripts
 Vishing (voice phishing) and smishing (SMS phishing) use psychological triggers — authority, scarcity, fear, and liking — to manipulate targets.
 Built a script generator that produces awareness-training call scripts with red-flag explanations.
+## Day 5 — OSINT + SE: Build a Target Profile
+Combined OSINT techniques with social engineering by building a GitHub profile aggregator.
+The tool pulls public data (name, top languages, repo count, bio) to demonstrate how attackers build target profiles — and how limiting public info reduces exposure.
