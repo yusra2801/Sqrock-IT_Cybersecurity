@@ -27,3 +27,6 @@ Built a script generator that produces awareness-training call scripts with red-
 ## Day 5 — OSINT + SE: Build a Target Profile
 Combined OSINT techniques with social engineering by building a GitHub profile aggregator.
 The tool pulls public data (name, top languages, repo count, bio) to demonstrate how attackers build target profiles — and how limiting public info reduces exposure.
+## Day 6 — Spear Phishing Email Craft
+Built a personalized phishing-awareness email generator using OSINT-style target data (name, company, location).
+Demonstrates how spoofed sender addresses and personal hooks make spear phishing convincing, plus a defender-side SPF/DKIM/DMARC setup guide.
