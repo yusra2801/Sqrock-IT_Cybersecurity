@@ -30,3 +30,6 @@ The tool pulls public data (name, top languages, repo count, bio) to demonstrate
 ## Day 6 — Spear Phishing Email Craft
 Built a personalized phishing-awareness email generator using OSINT-style target data (name, company, location).
 Demonstrates how spoofed sender addresses and personal hooks make spear phishing convincing, plus a defender-side SPF/DKIM/DMARC setup guide.
+## Day 7 — Password Attacks & Credential Stuffing
+Built a local Flask login server and a brute-force simulator that tested common passwords against it.
+Demonstrated how adding a Flask rate limiter (5 requests/minute) blocks brute-force attempts — even the correct password failed once the limit was hit.
