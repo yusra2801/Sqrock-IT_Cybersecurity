@@ -33,3 +33,6 @@ Demonstrates how spoofed sender addresses and personal hooks make spear phishing
 ## Day 7 — Password Attacks & Credential Stuffing
 Built a local Flask login server and a brute-force simulator that tested common passwords against it.
 Demonstrated how adding a Flask rate limiter (5 requests/minute) blocks brute-force attempts — even the correct password failed once the limit was hit.
+## Day 8 — USB Drop Attack Simulation
+Built a benign recon script simulating what a malicious USB payload could silently collect (hostname, OS, username, current directory) the moment it runs.
+Demonstrates how quickly a machine can be fingerprinted, plus a USB drop prevention policy for defenders.
