@@ -36,3 +36,10 @@ Demonstrated how adding a Flask rate limiter (5 requests/minute) blocks brute-fo
 ## Day 8 — USB Drop Attack Simulation
 Built a benign recon script simulating what a malicious USB payload could silently collect (hostname, OS, username, current directory) the moment it runs.
 Demonstrates how quickly a machine can be fingerprinted, plus a USB drop prevention policy for defenders.
+## Day 9 — Social Media Impersonation & Fake Profile Detection
+Built a fake-profile scorer that flags bot-like behavior using account age, follower ratios, profile picture presence, post count, and bio status.
+Tested against 5 profiles, including a real personal Instagram account, showing the scorer reacts proportionally rather than overreacting to a single factor.
+
+## Day 10 — Baiting & Watering Hole Attack Simulation
+Built a honeypot web server that logs full visitor details (IP, timestamp, browser, OS) whenever someone clicks a bait link.
+Demonstrated how much fingerprinting data a single click can leak, plus a mitigation report covering web filtering, patch management, and user awareness.
