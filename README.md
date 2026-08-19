@@ -43,3 +43,22 @@ Tested against 5 profiles, including a real personal Instagram account, showing 
 ## Day 10 — Baiting & Watering Hole Attack Simulation
 Built a honeypot web server that logs full visitor details (IP, timestamp, browser, OS) whenever someone clicks a bait link.
 Demonstrated how much fingerprinting data a single click can leak, plus a mitigation report covering web filtering, patch management, and user awareness.
+## Day 11 — Social Engineering Awareness Training Module
+Built an interactive CLI quiz with 10 scenario-based social engineering questions, giving immediate feedback and saving scores to JSON.
+Scored 9/10 on a test run, reinforcing why clicking email links to "verify" credentials is unsafe.
+
+## Day 12 — Phishing Email Detection with ML
+Trained a Naive Bayes classifier on a 50-email dataset using scikit-learn, achieving 93.33% accuracy on held-out test data.
+Successfully classified 4 brand-new, unseen emails correctly, showing the model generalizes well.
+
+## Day 13 — SIEM Log Analysis for SE Attack Detection
+Built a log parser that flags brute-force login patterns and suspicious auto-forwarding email rules — both common post-compromise indicators.
+Correctly distinguished a genuine brute-force attempt (4 failures) from normal failed logins below the alert threshold.
+
+## Day 14 — SE Incident Response Plan
+Built an IR automation script that determines containment actions based on incident type and severity, then saves a full JSON report.
+Includes a complete 6-phase IR playbook covering preparation through lessons learned.
+
+## Day 15 — Final Project: SE Attack Chain Simulator
+Combined 5 tools built across the internship (OSINT, profiling, phishing scoring, spear-phishing templates, and incident response) into one menu-driven CLI tool.
+Demonstrates the full social engineering attack chain — reconnaissance through response — in a single integrated simulation, completing all 15 days of the internship.
