@@ -1,0 +1,6 @@
+### Day 22 — API Rate Limiting Token Bucket Logic
+
+Uncapped API endpoints can be abused by automated scripts for brute-force attacks or Denial of Service (DoS). The Token Bucket algorithm protects against this by giving each client a fixed number of "tokens" (capacity) that deplete with each request and refill gradually over time at a fixed rate. In this task, I implemented a rate limiter with a bucket capacity of 3 tokens, refilling at 0.5 tokens/sec (1 token every 2 seconds). Simulating 6 rapid-fire requests from the same client showed the first 3 were allowed (using up all tokens) and the next 3 were blocked. After waiting 4 seconds for the bucket to refill (~2 tokens), 2 more requests were successfully allowed — confirming the refill logic works correctly over time.
+
+**Real-world integration:**
+In a distributed enterprise setup, this per-client ledger would typically be stored in a shared cache (like Redis) rather than in-memory, so the rate limit applies consistently across multiple API gateway/load-balanced instances rather than resetting per server.

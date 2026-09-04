@@ -1,0 +1,8 @@
+### Day 21 — Cross-Site Scripting (XSS) Payload Sanitizer
+
+Cross-Site Scripting (XSS) happens when untrusted user input is placed into a webpage without proper encoding, letting an attacker's script execute in another user's browser. Converting raw characters into their safe equivalents (e.g. `<` becomes `&lt;`) prevents the browser from treating injected text as executable markup. In this task, I tested the sanitizer against 10 adversarial payloads — script tags, event-handler based attacks (`onerror`, `onload`, `onclick`), a `javascript:` URI, and one normal harmless comment. All 9 malicious payloads were HTML-escaped, so even ones not explicitly keyword-stripped (like the `onclick` example) became inert since the surrounding tags were no longer real HTML. The normal comment passed through completely unchanged, confirming the sanitizer doesn't break legitimate input.
+
+**Stored vs Reflected vs DOM-based XSS:**
+- **Stored XSS:** the malicious script is saved on the server (e.g. in a database, comment field) and served to every user who views that page — the most dangerous type since it affects many victims automatically.
+- **Reflected XSS:** the script is part of the request itself (e.g. a URL parameter) and is immediately reflected back in the response — it only affects a user who is tricked into clicking a crafted link.
+- **DOM-based XSS:** the vulnerability lives entirely in client-side JavaScript, which unsafely takes data from the URL/DOM and inserts it back into the page without ever involving the server in the malicious payload itself.

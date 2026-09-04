@@ -1,0 +1,6 @@
+### Day 24 — Automated Threat Intel IP Blocking Pipeline
+
+Threat Intelligence feeds aggregate Indicators of Compromise (IoCs) gathered from sensors distributed globally. Automating perimeter protection based on this data means malicious infrastructure can be blocked instantly, without waiting for a human analyst to review every entry. In this task, I built a pipeline that ingests a mock threat intel feed and automatically deploys a firewall block rule for any IP with a risk score above 90, while lower-risk IPs are simply logged for monitoring. Testing against 3 mock entries correctly blocked the malware C2 server (score 98) and the brute-forcer (score 92), while the botnet node (score 85) was logged rather than blocked — reflecting a graduated response based on severity rather than an all-or-nothing approach.
+
+**Why a threshold-based response matters:**
+Auto-blocking every flagged IP regardless of confidence risks false positives disrupting legitimate traffic. A tiered approach — block only high-confidence/high-severity indicators, log and review the rest — balances automation speed with analyst oversight.
