@@ -1,0 +1,6 @@
+### Day 28 — SIEM Alert Trigger Automation via Webhooks
+
+Real-time alerting reduces Mean Time to Respond (MTTR) by getting critical events in front of an analyst immediately, rather than waiting for someone to manually check a dashboard. Webhooks provide a lightweight way to push structured event payloads directly into collaboration tools like Slack, MS Teams, or PagerDuty. In this task, I built a function that formats a security alert (type + source IP) into a webhook payload and dispatches it. Testing against 3 mock alerts (failed logins, a SQL injection attempt, and unusual outbound traffic) correctly formatted and "sent" all three — in a real deployment, the commented-out `requests.post()` line would deliver these directly to a live Slack/Teams channel.
+
+**SIEM → Webhook → Response flow:**
+The SIEM detects a suspicious pattern in the logs it's already ingesting → it triggers a webhook call to the appropriate channel → the alert lands in the SOC team's chat tool in real time → an analyst reviews and, if needed, escalates or begins containment (see Day 29).

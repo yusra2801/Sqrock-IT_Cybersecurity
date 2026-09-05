@@ -1,0 +1,6 @@
+### Day 27 — Automated Vulnerability Report Aggregator
+
+Security Operations Centers (SOCs) often deal with alert fatigue caused by fragmented output from multiple different scanning tools. Aggregating results into one unified format standardizes vulnerability management and speeds up remediation. In this task, I built an aggregator that takes findings from multiple mock tools (Bandit, Trivy, Nikto) and filters them down to only HIGH-severity issues that require immediate action. Running it against 5 mock findings correctly aggregated the 2 HIGH-severity issues (a hardcoded password and an outdated OpenSSL library), while skipping the MEDIUM and LOW severity findings for later review.
+
+**Executive summary format (for non-technical stakeholders):**
+Rather than listing raw tool output, an executive summary should state: how many critical issues were found, what business risk they represent in plain language (e.g. "an attacker could gain database access"), and a target remediation timeline — technical details like tool names and CVE IDs belong in an appendix, not the summary itself.

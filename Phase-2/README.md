@@ -39,3 +39,23 @@ Threat Intelligence feeds aggregate Indicators of Compromise (IoCs) gathered fro
 ### Day 25 — File Upload Vulnerability & Magic Bytes Validator
 
 Attackers often bypass file-extension checks by renaming executable scripts (e.g. `.php`) to look like harmless files (e.g. `.jpg`). Checking the actual binary header (magic bytes) instead of trusting the file extension confirms whether the content genuinely matches the claimed format. In this task, I built a validator that reads the first bytes of a file and compares them against known signatures for PNG and JPEG. I tested it against two files: a genuine PNG (correct magic bytes) and a file disguised as a `.jpg` that actually contained PHP code. The validator correctly passed the real PNG and flagged the fake `.jpg` as an invalid signature — exactly the kind of malicious upload attempt this check is meant to catch.
+
+### Day 26 — Building a Custom Web Application Firewall (WAF) Engine
+
+A Web Application Firewall (WAF) sits at the application edge, inspecting incoming traffic against signature rules and blocking known attack patterns (SQLi, XSS, Path Traversal) before they ever reach the backend logic. In this task, I built a middleware class that checks each incoming request against 3 regex-based rules. Testing against 5 mock requests correctly blocked a path traversal attempt (`../../etc/passwd`), an XSS payload (`<script>alert(1)</script>`), and a SQL injection attempt (`UNION SELECT`), while two legitimate requests passed through cleanly.
+
+### Day 27 — Automated Vulnerability Report Aggregator
+
+Security Operations Centers (SOCs) often deal with alert fatigue caused by fragmented output from multiple different scanning tools. Aggregating results into one unified format standardizes vulnerability management and speeds up remediation. In this task, I built an aggregator that takes findings from multiple mock tools (Bandit, Trivy, Nikto) and filters them down to only HIGH-severity issues that require immediate action. Running it against 5 mock findings correctly aggregated the 2 HIGH-severity issues (a hardcoded password and an outdated OpenSSL library), while skipping the MEDIUM and LOW severity findings for later review.
+
+### Day 28 — SIEM Alert Trigger Automation via Webhooks
+
+Real-time alerting reduces Mean Time to Respond (MTTR) by getting critical events in front of an analyst immediately, rather than waiting for someone to manually check a dashboard. Webhooks provide a lightweight way to push structured event payloads directly into collaboration tools like Slack, MS Teams, or PagerDuty. In this task, I built a function that formats a security alert (type + source IP) into a webhook payload and dispatches it. Testing against 3 mock alerts (failed logins, a SQL injection attempt, and unusual outbound traffic) correctly formatted and "sent" all three — in a real deployment, the commented-out `requests.post()` line would deliver these directly to a live Slack/Teams channel.
+
+### Day 29 — Incident Containment & Asset Isolation Scripting
+
+Fast containment prevents lateral movement — stopping an attacker from spreading further into the network once a host is compromised. Automated scripts can interact with hypervisors, cloud APIs, or network controllers to quarantine an infected asset by revoking sessions, applying restrictive security group rules, and cutting off outbound traffic. In this task, I built a containment script that simulates a 3-step isolation process on a compromised host: revoking active sessions, applying quarantine security group rules, and null-routing external egress. Running it against two mock compromised hosts (192.168.1.150 and 10.0.4.12) successfully completed all 3 steps for both, confirming the isolation logic runs consistently regardless of the target IP.
+
+### Day 30 — Final Project: Automated Web Vulnerability Scanner
+
+This final project integrates the reconnaissance, vulnerability detection, and reporting logic built throughout Phase 2 into one modular scanner class, demonstrating end-to-end automated security auditing. Running it against `127.0.0.1` performed 3 phases: port reconnaissance (checking common ports 22/80/443/5432/8080 — none found open, a clean baseline), vulnerability auditing (scanning mock log entries for SQLi patterns — one login-bypass attempt flagged as HIGH severity), and finally compiling everything into a single unified security report, listing all findings by severity in one place rather than as scattered raw output.

@@ -5,4 +5,4 @@ Unindexed locations like admin panels (`/admin`), environment files (`/.env`), o
 **Remediation:**
 - Require authentication on any admin/dashboard route — never leave it publicly accessible
 - Never deploy `.env` files or database backups inside the web-served directory
-- Use a WAF or reverse proxy rule to block common sensitive paths outright
+- Use a WAF or reverse proxy rule to block common sensitive paths outrightgit commit -m "Phase 2 - 
